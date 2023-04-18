@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font01: 'Audiowide', cursive;
+
+    --hue: 250;
+
+    --color01: hsl(var(--hue), 22%, 20%);
+    --color02: hsl(var(--hue), 50%, 80%);
+    --color03: hsl(var(--hue), 100%, 11%);
+
+    --text01: clamp(3rem, 1rem + 1vw, 4rem);
+    --text02: 1.6rem;
+
+    --colorWhite: #FFFFFF;
+
+    font-size: 62.5%;
+}
+
+
+body {
+    background-color: var(--color01);
+    font-family: var(--font01);
+    padding: 11rem 2rem;
+    text-align: center;
+}
+
+header {
+    animation: topdown 1.5s;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: var(--text01);
+    line-height: 4.8rem;
+    color: var(--colorWhite);
+    margin: .5rem auto 5rem;
+    letter-spacing: .2rem;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: var(--text01);
+    line-height: 4.8rem;
+    color: var(--colorWhite);
+    text-align: start;
+}
+
+p {
+    letter-spacing: .3rem;
+    font-weight: 400;
+    font-size: var(--text02);
+    line-height: 3.2rem;
+    color: var(--color02);
+}
+
+main {
+    display: flex;
+    max-width: 120rem;
+    margin: auto;
+    flex-direction: column;
+    gap: 3.2rem;
+    animation: downup 1.5s 1s backwards;
+}
+
+.card {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 5.1rem 2.8rem;
+    border-radius: .6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+button {
+    font-weight: 400;
+    margin: 0 0 2.3rem;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font01);
+    font-size: var(--text02);
+}
+
+button:hover {
+    box-shadow: 0rem 0rem 1rem var(--color02);
+}
+
+button:hover ~ img {
+    transform: scale(1.1) rotate(3deg);
+    transition-duration: .2s;
+    filter: brightness(1) blur(0);
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    filter: brightness(0.8) blur(2px);
+}
+
+@media only screen and (min-width: 800px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+
+    .prop-w40 {
+        width: calc(40% - 1.5rem);
+    }
+    .prop-w60 {
+        width: calc(60% - 1.5rem);
+    }
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downup {
+    0% {
+        opacity: 0;
+        transform: translateY(25rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
